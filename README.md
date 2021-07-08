@@ -62,6 +62,12 @@ It should be very noise insensitive, unless the noise is 'warbling' and contains
 * Drill some holes! Add an OLED display with the current squelch level on it! Add a NexTion display and plot the serial data! YOU NEED TO SHOW OFF ALL THE DATA!!
 
 # Discussion of Algorithms
+Ultimately what the program is looking for, is time varying spread of the energy in the passbands (and ZCF). Below is an example of what speech looks like among the bands, followed by the output of the algorithm before it is converted to a squelch signal. .
+
+![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/SpeechBands.PNG?raw=true)
+![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance.png?raw=true)
+![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance%20vs%20MaxVarianceDiff.png?raw=true)
+
 There *is* a difference between the variance of the derivative and the derivative of the variances, but it is hard to say if it is mathematical or practical due to rounding errors and bit noise. I would love for someone with better statistical calculus skills to show up and comment here!
 
 The results are close, but as you can see below in the model, taking the variance of the energy band data and then taking the derivative of that variance does result in slightly better noise rejection. See below for plots of the processing train: Note that the end of this audio recording of two CBers contains no voices after ~15 seconds. 
@@ -69,10 +75,8 @@ The results are close, but as you can see below in the model, taking the varianc
 ![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance%20vs%20MaxVarianceDiff%202.png?raw=true)
 ![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/SqlSigsFiltered.png?raw=true)
 
-And following are some different examples of speech showing the energy band maximums and the variance of the diffs, and another comparison between the two algorithms
 
-![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/SpeechBands.PNG?raw=true)
-![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance.png?raw=true)
-![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance%20vs%20MaxVarianceDiff.png?raw=true)
+
+
 
 
