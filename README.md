@@ -59,3 +59,13 @@ There *is* a difference between the variance of the derivative and the derivativ
 
 The results are close, but as you can see below in the model, taking the variance of the energy band data and then taking the derivative of that variance does result in slightly better noise rejection. See below for plots of the processing train: Note that the end of this audio recording of two CBers contains no voices after ~15 seconds. 
 
+![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance%20vs%20MaxVarianceDiff%202.png?raw=true)
+![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/SqlSigsFiltered.png?raw=true)
+
+And following are some different examples of speech showing the energy band maximums and the variance of the diffs, and another comparison between the two algorithms
+
+![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/SpeechBands.PNG?raw=true)
+![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance.png?raw=true)
+![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance%20vs%20MaxVarianceDiff.png?raw=true)
+
+
