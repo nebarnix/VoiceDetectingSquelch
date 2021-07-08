@@ -7,10 +7,11 @@ https://www.instructables.com/Speech-Recognition-With-an-Arduino-Nano/
 
 # Operational theory:
 ![Image Of Schematic](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/Schematic.PNG?raw=true)
-The heart of the sketch is Peter's smoothed maximum energy in the 4 pass bands + 1 ZCF 'band' detector
+
+The heart of the sketch is Peter's smoothed maximum energy in the 4 pass bands + 1 ZCF 'band' detector.
 The variance of the bands is then detected, and the differential is taken. 
 
-This is smoothed with an exponential filter, and a squelch is build around this level, with a tail of 1 seond on any filtered level above the set threshold. 
+This is smoothed with an exponential filter, and a squelch is built around this level, with a tail of 1 seond on any filtered level above the set threshold. 
 
 A buzzer and LED are also energized upon sufficient voice detection so you can be alerted to voice activity on the bands without tying the squelch signal back into the radio if you like. 
 
