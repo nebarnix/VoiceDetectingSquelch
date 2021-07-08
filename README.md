@@ -16,6 +16,13 @@ There is no normalization of the differential for the variance level(which is on
 
 A 1.5khz RC HP filter on the input using a 10nF cap and a 10k resistor in series with the arduino nano pin will reduce low frequency signal clipping and improve the performance of the algorithm.
 
+# Hardware Needed
+* An arduino nano
+* Two 2.2k ADC bias resistors  Vcc---2.2k---ADCPin---2.2k----GND
+* A headphones jack
+* 10nF capacitor decoupling capacitor between the signal input pin from the jack and the ADC pin
+* Optional but helpful: 10k resistor between ADC pin and 10nF capacitor to make a 1.5Khz high pass filter
+
 # Test modes
 * Mode 1: Hold the sql-down button at startup for o-scope mode using arduino serial plotter
 * Mode 2: Hold the sql-up button at startup for band energy mode using arduino serial plotter (useful for fine tuning the equalizer to match your radio's sound characteristics)
@@ -32,6 +39,15 @@ It should be very noise insensitive, unless the noise is 'warbling' and contains
 
 # Radio Integration
 ## I don't want to mess with my radio AT ALL
-* Plug into the headphones jack, and set the volume by entering test mode 1 (hold the sql-down button at startup) which outputs a 9khz o-scope view over serial plotter. Use this mode to set the volume, and record or mark it with a piece of tape on the dial. Make sure the signal doesn't clip (60% full scale on noise is a good place to put it)
+* Plug into the headphones or external speaker jack, and set the volume by entering test mode 1 (hold the sql-down button at startup) which outputs a 9khz o-scope view over serial plotter. Use this mode to set the volume, and record or mark it with a piece of tape on the dial. Make sure the signal doesn't clip (60% full scale on noise is a good place to put it)
 * Reboot the arduino without the button pressed. The serial plotter will output the filtered squelch level and the set threshold level. Use the sql-up and sql-down to set the trigger level.
+* The arduino will beep on voice detection!
+* Useless Power User Trick: 'Y' the signal into your PC's line-in, and use the serial port data to implement a mute/unmute function on your computer! mmm so Squelchy!
 
+## I want to mess with my radio a little
+* Find the audio stage after where the AGC is implemented but before the volume knob is applied. Use this signal (through an appropriate operational or audio amplifier stage) so that you can set the speaker volume to a comfortable level without messing up the input volume to the nano. 
+
+## My radio is my project car
+* Follow above advice
+* Find where at in the audio chain the squelch signal is injected, and inject (use a resistor!) the output of the arduino here. Usually this is a gate, so a high level means silence and a low level means audio is able to pass. 
+* Drill some holes! Add an OLED display with the current squelch level on it! Add a NexTion display and plot the serial data! YOU NEED TO SHOW OFF ALL THE DATA!!
