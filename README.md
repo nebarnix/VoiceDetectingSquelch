@@ -58,7 +58,7 @@ It should be very noise insensitive, unless the noise is 'warbling' and contains
 * In this case the circuit is still functioning as a voice detector (BEEEP), not really a squelch. 
 
 ## My radio is my project car
-* Follow above advice
+* Follow above advice, but be sure to extract the audio BEFORE the squelch gate is applied!
 * Find where at in the audio chain the squelch signal is injected, and inject (use a resistor!) the output of the arduino here. Usually this is a gate, so a high level means silence and a low level means audio is able to pass. 
 * Drill some holes! Add an OLED display with the current squelch level on it! Add a NexTion display and plot the serial data! YOU NEED TO SHOW OFF ALL THE DATA!!
 
