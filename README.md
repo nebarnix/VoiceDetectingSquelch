@@ -5,6 +5,7 @@ Based on the amazing and wonderful code by Peter Bach:
 https://www.instructables.com/Speech-Recognition-With-an-Arduino-Nano/
 
 # Operational theory:
+![Image Of Schematic](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/Schematic.PNG?raw=true)
 The heart of the sketch is Peter's smoothed maximum energy in the 4 pass bands + 1 ZCF 'band' detector
 The variance of the bands is then detected, and the differential is taken. 
 
@@ -17,6 +18,7 @@ There is no normalization of the differential for the variance level(which is on
 A 1.5khz RC HP filter on the input using a 10nF cap and a 10k resistor in series with the arduino nano pin will reduce low frequency signal clipping and improve the performance of the algorithm.
 
 # Hardware Needed
+![Image Of Hardware Layout](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/Hardware.png?raw=true)
 * An arduino nano
 * Two 2.2k ADC bias resistors  Vcc---2.2k---ADCPin---2.2k----GND
 * A headphones jack
@@ -51,3 +53,9 @@ It should be very noise insensitive, unless the noise is 'warbling' and contains
 * Follow above advice
 * Find where at in the audio chain the squelch signal is injected, and inject (use a resistor!) the output of the arduino here. Usually this is a gate, so a high level means silence and a low level means audio is able to pass. 
 * Drill some holes! Add an OLED display with the current squelch level on it! Add a NexTion display and plot the serial data! YOU NEED TO SHOW OFF ALL THE DATA!!
+
+# Discussion of Algorithms
+There *is* a difference between the variance of the derivative and the derivative of the variances, but it is hard to say if it is mathematical or practical due to rounding errors and bit noise. I would love for someone with better statistical calculus skills to show up and comment here!
+
+The results are close, but as you can see below in the model, taking the variance of the energy band data and then taking the derivative of that variance does result in slightly better noise rejection. See below for plots of the processing train: Note that the end of this audio recording of two CBers contains no voices after ~15 seconds. 
+
