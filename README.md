@@ -4,6 +4,7 @@ A SSB or weak signal voice detecting squelch that runs on an arduino nano!
 Based on the amazing and wonderful code by Peter Bach:
 https://www.instructables.com/Speech-Recognition-With-an-Arduino-Nano/
 
+
 # Operational theory:
 ![Image Of Schematic](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/Schematic.PNG?raw=true)
 The heart of the sketch is Peter's smoothed maximum energy in the 4 pass bands + 1 ZCF 'band' detector
@@ -16,6 +17,12 @@ A buzzer and LED are also energized upon sufficient voice detection so you can b
 There is no normalization of the differential for the variance level(which is on the todo list), so without an AGC input stage you will find the squelch level to be slightly volume dependant, simply as the noise is volume dependant. 
 
 A 1.5khz RC HP filter on the input using a 10nF cap and a 10k resistor in series with the arduino nano pin will reduce low frequency signal clipping and improve the performance of the algorithm.
+
+# Which Sketch?
+Use MVD unless you want to play with MDV
+* Avg->Varaince->Differentiation -> average energy vs smoother max energy showed worse detection, abandoned. 
+* Max->Varaince->Differentiation -> Max filtered band energy, variance, then differentialtion is the best one
+* Max->Differentiation->Varaince -> Max filtered band energy, differentiation, then variance is where I started, but the model shows it is inferior. (see below for plots)
 
 # Hardware Needed
 ![Image Of Hardware Layout](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/Hardware.png?raw=true)
