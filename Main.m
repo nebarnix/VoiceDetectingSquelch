@@ -4,11 +4,11 @@
 clear all;
 
 %Must be 10-bit 8890 sps to mirror arduino!
-%hfile = 'C:\Users\nebarnix\Documents\HAM\VoiceDetect\K7EMEcall.wav';
-%hfile = 'C:\Users\nebarnix\Documents\HAM\VoiceDetect\SDRSharp_20210703_012541Z_28385000Hz_AF.wav';
-%hfile = 'C:\Users\nebarnix\Documents\HAM\VoiceDetect\SDRSharp_20210703_013858Z_27355000Hz_AF_8k.wav';
-%hfile = 'C:\Users\nebarnix\Documents\HAM\VoiceDetect\SDRSharp_20210703_013858Z_27355000Hz_AF_8k_HPF.wav';
-hfile = 'C:\Users\nebarnix\Documents\HAM\VoiceDetect\SWOT-net test data diversity rx LR_9k_hpf.wav'; %gaston (good silence) starts around 6876417
+%hfile = 'K7EMEcall.wav';
+%hfile = 'SDRSharp_20210703_012541Z_28385000Hz_AF.wav';
+%hfile = 'SDRSharp_20210703_013858Z_27355000Hz_AF_8k.wav';
+%hfile = 'SDRSharp_20210703_013858Z_27355000Hz_AF_8k_HPF.wav';
+hfile = 'SWOT-net test data diversity rx LR_9k_hpf.wav'; %gaston (good silence) starts around 6876417
 
 [audioData,Fs] = audioread(hfile,'native'); %SIGNED 16 bit data
 
