@@ -50,11 +50,12 @@ It should be very noise insensitive, unless the noise is 'warbling' and contains
 ## I don't want to mess with my radio AT ALL
 * Plug into the headphones or external speaker jack, and set the volume by entering test mode 1 (hold the sql-down button at startup) which outputs a 9khz o-scope view over serial plotter. Use this mode to set the volume, and record or mark it with a piece of tape on the dial. Make sure the signal doesn't clip (60% full scale on noise is a good place to put it)
 * Reboot the arduino without the button pressed. The serial plotter will output the filtered squelch level and the set threshold level. Use the sql-up and sql-down to set the trigger level.
-* The arduino will beep on voice detection!
+* The arduino will beep on voice detection! (not really a squelch)
 * Useless Power User Trick: 'Y' the signal into your PC's line-in, and use the serial port data to implement a mute/unmute function on your computer! mmm so Squelchy!
 
 ## I want to mess with my radio a little
 * Find the audio stage after where the AGC is implemented but before the volume knob is applied. Use this signal (through an appropriate operational or audio amplifier stage) so that you can set the speaker volume to a comfortable level without messing up the input volume to the nano. 
+* In this case the circuit is still functioning as a voice detector (BEEEP), not really a squelch. 
 
 ## My radio is my project car
 * Follow above advice
