@@ -34,7 +34,7 @@ Use MVD unless you want to play with MDV
 * Two 2.2k ADC bias resistors  Vcc---2.2k---ADCPin---2.2k----GND
 * A headphones jack
 * 10nF capacitor decoupling capacitor between the signal input pin from the jack and the ADC pin
-* Optional but helpful: 10k resistor between ADC pin and 10nF capacitor to make a 1.5Khz high pass filter
+* 10K resistor (OR use a 100nF cap with no resistor, but this leads to a greater source load)
 
 # Test modes
 * Mode 1: Hold the sql-down button at startup for o-scope mode using arduino serial plotter
