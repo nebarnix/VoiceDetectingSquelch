@@ -8,16 +8,19 @@ https://www.instructables.com/Speech-Recognition-With-an-Arduino-Nano/
 # Operational theory:
 ![Image Of Schematic](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/Schematic.PNG?raw=true)
 
-The heart of the sketch is Peter's smoothed maximum energy in the 4 pass bands + 1 ZCF 'band' detector.
-The variance of the bands is then detected, and the differential is taken. 
+The heart of the sketch is Peter's algorithm for a fast ~8900Hz ADC routine along with a smoothed energy detector in 4 pass bands + 1 ZeroCrossingFrequency 'band'.
 
-This is smoothed with an exponential filter, and a squelch is built around this level, with a tail of 1 seond on any filtered level above the set threshold. 
+Using that functionality as a stand-in for an FFT, the variance of the energy within the bands is calculated with a window time of 100mS, and the differential is taken. (or opposite)
+
+This is smoothed with an exponential filter, and a squelch is built around this result, with a tail of 1 seond on any filtered level above the set threshold. 
 
 A buzzer and LED are also energized upon sufficient voice detection so you can be alerted to voice activity on the bands without tying the squelch signal back into the radio if you like. 
 
 There is no normalization of the differential for the variance level(which is on the todo list), so without an AGC input stage you will find the squelch level to be slightly volume dependant, simply as the noise is volume dependant. 
 
 A 1.5khz RC HP filter on the input using a 10nF cap and a 10k resistor in series with the arduino nano pin will reduce low frequency signal clipping and improve the performance of the algorithm.
+
+Update: you can omit the 10k resistor if you use a 100nF pass capacitor. 
 
 # Which Sketch?
 Use MVD unless you want to play with MDV
