@@ -23,7 +23,9 @@ A 1.5khz RC HP filter on the input using a 10nF cap and a 10k resistor in series
 Update: you can omit the 10k resistor if you use a 100nF pass capacitor. 
 
 # Which Sketch?
-Use MVD unless you want to play with MDV
+## UPDATE - MVD appears to be more volume sensitive than MDV, so at first glance seems to work better, but MDV is far less sensitive to volume and therefore noisefloor changes. 
+Use MDV unless you want to play with MDV
+~~Use MVD unless you want to play with MDV~~
 * Avg->Varaince->Differentiation -> average energy vs smoother max energy showed worse detection, abandoned. 
 * Max->Varaince->Differentiation -> Max filtered band energy, variance, then differentialtion is the best one
 * Max->Differentiation->Varaince -> Max filtered band energy, differentiation, then variance is where I started, but the model shows it is inferior. (see below for plots)
