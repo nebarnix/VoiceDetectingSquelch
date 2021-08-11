@@ -82,6 +82,9 @@ The results are close, but as you can see below in the model, taking the varianc
 ![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/MaxDiffVariance%20vs%20MaxVarianceDiff%202.png?raw=true)
 ![Plot of MDV vs MVD](https://github.com/nebarnix/VoiceDetectingSquelch/blob/main/SqlSigsFiltered.png?raw=true)
 
+# Future Work
+* Both algorithms are inherently volume sensitive as noise is volume sensitive. Playing with an idea to keep track of max energy (non band specific) then normalize all energy band data by this number to remove this volume sensitivity. Still in work. 
+* ZCF is not volume sensitive but is treated like it is. How to normalize? (maybe a looooonnnggg time constant high pass filter then re-offset by known value to match other band data?)
 
 
 
