@@ -24,7 +24,7 @@ Update: you can omit the 10k resistor if you use a 100nF pass capacitor.
 
 # Which Sketch?
 ## UPDATE - MVD appears to be more volume sensitive than MDV, so at first glance seems to work better, but MDV is far less sensitive to volume and therefore noisefloor changes. 
-Use MDV unless you want to play with MVD
+**Use _MDV_ unless you want to play with MVD**
 ~~Use MVD unless you want to play with MDV~~
 * Avg->Varaince->Differentiation -> average energy vs smoother max energy showed worse detection, abandoned. 
 * Max->Varaince->Differentiation -> Max filtered band energy, variance, then differentialtion is the best one
